@@ -1,6 +1,6 @@
 // *** Intro to OOP *** //
 
-// Base Class - constructor
+// // Base Class - constructor
 // var Vehicle = function(numberOfWheels, carColor){
 //   // properties
 //   this.wheels = numberOfWheels;
@@ -22,31 +22,53 @@
 // console.log(redCar.honk());
 // console.log(redCar.toString());
 
-//Base Class - constructor
+// //Base Class - constructor
 
-var Song = function (songName, bandName) {
-  this.song = songName;
-  this.band = bandName;
+// var Song = function (songName, bandName) {
+//   this.songName = songName;
+//   this.bandName = bandName;
 
+// };
+
+// //Methods
+// Song.prototype.countName = function () {
+//   return this.songName.split(" ").length;
+// };
+
+// Song.prototype.createElement = function () {
+//   var newEl = $('<h1>test</h1>');
+//   return newEl;
+// };
+
+
+// //Instances
+// var newSong = new Song('A Day in the Life', 'The Beatles');
+// console.log(newSong);
+// console.log(newSong.countName());
+
+// $( document ).ready(function() {
+//     $('body').append(newSong.countName());
+//     $('body').append(newSong.createElement());
+// });
+
+var Person = function(firstAndLastName) {
+  this.firstAndLastName = firstAndLastName;
+  this.isInstructor = true;
 };
 
-//Methods
-Song.prototype.countName = function () {
-  return this.song.split(" ").length
+var michael = new Person('Michael Herman');
+
+Person.prototype.getFullName = function () {
+  return this.firstAndLastName;
 };
 
-Song.prototype.createElement = function () {
-  var newElement = $('<p></p>');
-  newElement.text(this.song + ' by ' + this.band);
-  return newElement;
+Person.prototype.getFirstName = function() {
+  var splitName = this.firstAndLastName.split(" ");
+  return splitName[0];
 };
 
+Person.prototype.getLastName = function () {
+  var splitName = this.firstAndLastName.split(" ");
+  return splitName[1];
+};
 
-//Instances
-var newSong = new Song('A Day in the Life', 'The Beatles');
-console.log(newSong);
-console.log(newSong.countName());
-
-$( document ).ready(function() {
-    $('body').append(newSong.createElement());
-});
